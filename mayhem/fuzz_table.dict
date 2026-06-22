@@ -1,0 +1,28 @@
+# AMQP field-table wire format dictionary (fuzz_table -> amqp_decode_table).
+# A table is: <u32 byte-count> then repeated entries of <u8 keylen><key><u8 type-tag><value>.
+# The single-byte field type tags are the strongest tokens for the decoder's switch.
+kind_boolean="t"
+kind_int8="b"
+kind_uint8="B"
+kind_int16="s"
+kind_uint16="u"
+kind_int32="I"
+kind_uint32="i"
+kind_int64="l"
+kind_uint64="L"
+kind_float="f"
+kind_double="d"
+kind_decimal="D"
+kind_utf8="S"
+kind_array="A"
+kind_timestamp="T"
+kind_table="F"
+kind_void="V"
+kind_bytes="x"
+# example field names seen in AMQP capabilities/server-properties tables
+key_capabilities="capabilities"
+key_product="product"
+key_version="version"
+key_platform="platform"
+key_mechanisms="mechanisms"
+key_publisher_confirms="publisher_confirms"
