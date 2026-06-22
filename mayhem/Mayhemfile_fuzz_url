@@ -1,0 +1,8 @@
+project: rabbitmq-c
+target: fuzz_url
+testsuite:
+  - file:///mayhem/mayhem/testsuite/fuzz_url
+cmds:
+  - cmd: /mayhem/fuzz_url
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/fuzz_url.dict

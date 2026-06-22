@@ -1,0 +1,18 @@
+# AMQP wire-frame dictionary (fuzz_server -> amqp_handle_input over a fake broker socket).
+# Input bytes ARE the broker's response that the client parses. A frame is
+# <u8 type><u16 channel><u32 size><payload><u8 0xCE frame-end>. Frame types:
+#   1=METHOD 2=HEADER 3=BODY 8=HEARTBEAT ; frame-end octet = 0xCE (206).
+frame_method="\x01"
+frame_header="\x02"
+frame_body="\x03"
+frame_heartbeat="\x08"
+frame_end="\xce"
+channel0="\x00\x00"
+protocol_header="AMQP\x00\x00\x09\x01"
+# Connection.Start (class 10 / method 10) — first method a client expects.
+conn_class="\x00\x0a"
+conn_start="\x00\x0a\x00\x0a"
+conn_tune="\x00\x0a\x00\x1e"
+conn_open_ok="\x00\x0a\x00\x29"
+# AMQP version octets
+version_0_9_1="\x00\x00\x09\x01"
